@@ -10,9 +10,12 @@ body {
 }
 .contener {
 	width: 100%;
-	border-radius: 10px;
-	height: 80vh; /* olib tashlanadi */
+
+	height: 100vh; /* olib tashlanadi */
 	background-color: aqua;
+}
+.postlar {
+	color: rgb(255, 255, 255);
 }
 .qidiruv {
 	display: grid;
@@ -36,4 +39,19 @@ body {
 	height: 50px;
 	border-radius: 50px;
 	background-color: rgb(190, 149, 149);
+}
+
+/* odamni katta rasmi va shu qator*/
+.kattaimg {
+	display: flex;
+	width: 60vh;
+	height: 89vh;
+	background-color: wheat;
+	align-items: center;
+	justify-content: space-around;
+	flex-direction: column;
+}
+.odmnirasm {
+	width: 50vh;
+	border-radius: 50%;
 }
