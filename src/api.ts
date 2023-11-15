@@ -5,18 +5,31 @@ function getUser(username: string) {
 	fetch(`${https}${username}`)
 		.then((res) => res.json())
 		.then((user) => {
-			barchamalumot(user.name, user.avatar_url);
+			barchamalumot(user.name, user.avatar_url, user.login, user.bio, user.location,user.name);
 		});
 }
 
-function barchamalumot(params: string, img: string) {
+function barchamalumot(params: string, img: string, niki: string, bio: string, lacat: string ,name:string) {
 	const odmnirasm: HTMLImageElement = document.querySelector(".odmnirasm")!;
-	console.log(img);
-
-	const nik: HTMLParagraphElement = document.querySelector(".nik")!;
+	const nikElements: NodeListOf<HTMLParagraphElement> = document.querySelectorAll(".nik");
+	const nikid: HTMLParagraphElement = document.querySelector(".nikid")!;
+	const ozihaqidaMalumot: HTMLParagraphElement = document.querySelector(".bio")!;
+	const turarjoyLacation: HTMLParagraphElement = document.querySelector(".location")!;
+	turarjoyLacation.innerText = `${lacat ? lacat : "Uzbekistan"}`;
+	turarjoyLacation;
+	nikid.innerText = `@${niki ? niki : "Rasuljonov02"}`;
 	console.log(params);
-	odmnirasm.src = `${img}`;
-	nik.innerText = `${params}`;
+	ozihaqidaMalumot.innerText = bio ? bio : `Bio yoq`;
+
+	odmnirasm.src = `${
+		img
+			? img
+			: `https://play-lh.googleusercontent.com/PCpXdqvUWfCW1mXhH1Y_98yBpgsWxuTSTofy3NGMo9yBTATDyzVkqU580bfSln50bFU`
+	}`;
+
+	nikElements.forEach((nik) => {
+		nik.innerText = params ? params : "Rasuljonov Muhammad";
+	});
 }
 
 getUser(qidiruvvalue);
@@ -28,8 +41,6 @@ function handleKeyDown(event: KeyboardEvent) {
 	}
 }
 qidir.addEventListener("keydown", handleKeyDown);
-
-
 
 /**
  *Fetch and XHR(XMLHttpRequest) and AJAX(Async JavaScript And XML)

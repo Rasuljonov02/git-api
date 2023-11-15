@@ -21,12 +21,18 @@ body {
 	display: grid;
 	place-items: center;
 	width: 100%;
+	font-size: 15px;
+	gap: 15px;
 	background-color: rgb(0, 0, 0);
 	align-items: center;
 	box-sizing: border-box;
 	padding: 10px 20px;
 	display: flex;
 	justify-content: space-between;
+}
+.niksiz {
+	font-size: 20px;
+	color: white;
 }
 .qidir {
 	width: 200px;
