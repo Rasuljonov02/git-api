@@ -10,6 +10,10 @@ body {
 	display: grid;
 	place-items: center;
 }
+a{
+	text-decoration: none;
+	color: rgb(243, 228, 228);
+}
 .contener {
 	width: 100%;
 

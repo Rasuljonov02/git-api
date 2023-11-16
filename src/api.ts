@@ -65,15 +65,19 @@ function barchamalumot(
 	});
 }
 
+
 getUser(qidiruvvalue);
 
 function handleKeyDown(event: KeyboardEvent) {
 	if (event.key === "Enter") {
+
 		const qidiruvvalue = qidir.value;
 		getUser(qidiruvvalue);
+
 	}
 }
 qidir.addEventListener("keydown", handleKeyDown);
+
 
 /**
  *Fetch and XHR(XMLHttpRequest) and AJAX(Async JavaScript And XML)

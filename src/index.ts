@@ -1,16 +1,16 @@
 import './main.css';
 import './api';
-// import './repositories';
+
 
 const repazitor: HTMLDivElement = document.querySelector('.chiz')!;
 const qidir: HTMLInputElement = document.querySelector('.qidir')!;
 
 const qidiruvvalue = qidir.value ? qidir.value : 'Rasuljonov02';
 
-const https = `https://api.github.com/users/${qidiruvvalue}/repos`;
+const https ="https://api.github.com/users/";
 
 function getrepos(username: string) {
-    fetch(https)
+    fetch(`${https}${username}/repos`)
         .then((res) => res.json())
         .then((repos) => {
             repositories(repos);
@@ -20,25 +20,37 @@ function getrepos(username: string) {
         });
 }
 
-// Display repositories
+
 function repositories(repos: any[]) {
-    if (repos && repos.length > 0) {
-        repos.forEach((repo) => {
-            repochizish(repo.name);
-        });
-    } else {
-        console.log('No repositories found.');
-    }
+ if (repos && repos.length > -1) {
+     repos.forEach((repo) => {
+         repochizish(repo.name, repo.html_url);
+     });
+ } else {
+     console.log('No repositories found.');
+ }
+}
+
+function repochizish(name: string, link: string) {
+ const a: HTMLAnchorElement = document.createElement('a');
+
+ a.innerText = `${name}`;
+ a.className = 'repos';
+ a.href = `${link}`;
+
+ repazitor.appendChild(a);
 }
 
 
-function repochizish(name: string) {
-    const p: HTMLParagraphElement = document.createElement('p');
+function handleKeyDown(event: KeyboardEvent) {
+	if (event.key === "Enter") {
+		repazitor.innerHTML="";
+		const qidiruvvalue = qidir.value;
+		getrepos(qidiruvvalue);
 
-    p.innerText = `${name}`;
-    p.className = 'repos';
-
-    repazitor.appendChild(p);
+	}
 }
+qidir.addEventListener("keydown", handleKeyDown);
+
 
 getrepos(qidiruvvalue);
