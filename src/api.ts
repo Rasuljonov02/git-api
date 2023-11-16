@@ -1,13 +1,10 @@
-
 const Followers: HTMLParagraphElement = document.querySelector(".Followers")!;
 const Following: HTMLParagraphElement = document.querySelector(".Following")!;
 const Repositories: HTMLParagraphElement = document.querySelector(".Repositories")!;
 const qidir: HTMLInputElement = document.querySelector(".qidir")!;
 const qidiruvvalue = qidir.value ? qidir.value : "Rasuljonov02";
 
-
 const https = "https://api.github.com/users/";
-
 
 function getUser(username: string) {
 	fetch(`${https}${username}`)
@@ -23,9 +20,6 @@ function getUser(username: string) {
 				user.following,
 				user.public_repos
 			);
-
-
-
 		});
 }
 
@@ -65,19 +59,15 @@ function barchamalumot(
 	});
 }
 
-
 getUser(qidiruvvalue);
 
 function handleKeyDown(event: KeyboardEvent) {
 	if (event.key === "Enter") {
-
 		const qidiruvvalue = qidir.value;
 		getUser(qidiruvvalue);
-
 	}
 }
 qidir.addEventListener("keydown", handleKeyDown);
-
 
 /**
  *Fetch and XHR(XMLHttpRequest) and AJAX(Async JavaScript And XML)
